@@ -17,6 +17,8 @@ let g:_sblue1 = '#80a0ff'
 let g:_scomment = '#8ba3bb'
 let g:_snormal = '#d8e5b8'
 let g:_sbackground = '#1e1d1c'
+let g:_svert = '#0f0e0e'
+let g:_sgold = '#ffd900'
 
 Hi HtmlItalic g:_snormal None None ["Italic"]
 Hi HtmlBold g:_snormal None None ["Bold"]
@@ -95,7 +97,9 @@ Hi TabLineFill #686060 #0f0e0e None []
 Hi TabLineSel #ff5d34 #1e1d1c g:_sblue1 ["bold"]
 Hi Teal1 #34ffd6 None None []
 Hi Title #ff8f34 #444040 None ["bold"]
-Hi VertSplit #0f0e0e #0f0e0e None []
+Hi FloatTitle #ff8f34 None None ["bold"]
+Hi FloatBorder g:_scomment spectral#brighter(g:_sbackground,2) ["bold"]
+Hi VertSplit g:_svert #0f0e0e None []
 Hi Visual #101010 #e0e0e0 None []
 Hi WarmSage #a09598 None None []
 Hi Warning #ffff00 #1a1818 None []
@@ -103,6 +107,11 @@ Hi Yellow1 #e0bf65 None None []
 Hi Yellow1PreProc #b4b070 None None []
 Hi javaError #dd0000 None None []
 Hi javaParen g:_sblue1 None None ["bold"]
+
+Hi DiagnosticSignWarn g:_sgold None ["None"] 
+Hi DiagnosticSignError #d52a2f None ["None"] 
+Hi DiagnosticVirtualTextWarn g:_sgold spectral#brighter(g:_sbackground,0.7) ["None"] 
+Hi DiagnosticVirtualTextError #d52a2f spectral#brighter(g:_sbackground,0.7) ["None"] 
 
 call spectral#Finish()
 
