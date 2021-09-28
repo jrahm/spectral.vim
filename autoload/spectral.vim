@@ -50,6 +50,27 @@ function! spectral#desaturate(color, amount)
   return spectral#toColor(nr, ng, nb)
 endfunction
 
+function! spectral#set_saturation(color, amount)
+  let saved = 0
+  if exists('g:return')
+    let old_return = g:return
+    let saved = 1
+  endif
+
+  call s:loadPythonScript()
+  exec printf('python3 spectral_set_saturation("%s", %s)', a:color, a:amount)
+
+  let ret = g:return
+
+  if saved
+    let g:return = old_return
+  else
+    unlet g:return
+  endif
+
+  return ret
+endfunction
+
 
 function! spectral#parseColor(color) abort
   if type(a:color) == v:t_list

@@ -3,7 +3,7 @@ import os
 import vim
 import colormath
 import colormath.color_diff
-from colormath.color_objects import LabColor, sRGBColor
+from colormath.color_objects import LabColor, sRGBColor, HSVColor
 from colormath.color_conversions import convert_color
 import sys
 import math
@@ -422,6 +422,23 @@ def spectral_start(outfile):
   global spectral_ctx
   spectral_ctx = Vivid(outfile)
   spectral_ctx.start()
+
+def set_saturation(color, amnt):
+  if isinstance(color, str):
+    color = sRGBColor.new_from_rgb_hex(color)
+
+  print("Color " + str(color) + " " + get_rgb_hex(color))
+  color_hsv = convert_color(color, HSVColor)
+  (h, s, v) = color_hsv.get_value_tuple()
+
+  print("HSVPre " + str(color_hsv))
+  color_hsv = HSVColor(h, amnt, v)
+  print("HSVPost " + str(color_hsv))
+  return convert_color(color_hsv, sRGBColor)
+
+def spectral_set_saturation(color, amnt):
+  c = set_saturation(color, amnt)
+  vim.command('let g:return="%s"' % get_rgb_hex(c))
 
 
 def lighter(color, amt):
