@@ -157,3 +157,5 @@ hi! link Operator Yellow1
 hi! link RadiationJavaClass Type
 hi! link RadiationJavaInterface RadiationProtoType
 hi! link Special Orange2
+
+call spectral#useDefaultTerminalColors()

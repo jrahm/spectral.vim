@@ -102,3 +102,5 @@ hi Terminal guibg=#000000 guifg=#e0e0e0
 hi link CurosorLine CursorColumn
 hi link vimFunction Function
 hi link PreProcEnjinAnnotation PreProcEnjinInterface
+
+call spectral#useDefaultTerminalColors()

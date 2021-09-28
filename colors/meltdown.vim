@@ -191,3 +191,5 @@ hi! link PreProcEnjinTryVar EnjinCatchVar
 
 hi! link javaImportPackage Sage2
 hi! link javaPackage Sage2
+
+call spectral#useDefaultTerminalColors()

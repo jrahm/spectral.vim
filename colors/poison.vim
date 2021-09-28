@@ -94,52 +94,19 @@ Hi DiagnosticVirtualTextWarn g:_sgold spectral#brighter(g:_sbackground,0.7) ["No
 Hi DiagnosticVirtualTextError #d52a2f spectral#brighter(g:_sbackground,0.7) ["None"] 
 Hi DiagnosticUnderlineWarn None None #ffaf00 ["undercurl"]
 Hi DiagnosticUnderlineError None None #ff0a00 ["undercurl"]
-Hi LineNr spectral#desaturate(g:_syellow,0.2) g:_ssigncol ["Bold"] 
+Hi LineNr g:_sred2 spectral#mix(g:_sbackground,g:_ssigncol) [] 
 Hi ColorColumn g:_ssigncol None 
 Hi SignColumn g:_ssigncol g:_ssigncol 
 Hi NonText g:_sred g:_ssigncol ["Bold","Italic"] 
-Hi VertSplit g:_svertsplit g:_svertsplit ["Bold","Italic"] 
+Hi VertSplit g:_svertsplit g:_svertsplit [] 
+Hi FloatBorder spectral#brighter(g:_snormal,0.6) g:_svertsplit ["Bold"] 
 Hi TabLineFill g:_ssigncol g:_ssigncol 
 Hi TabLine g:_snormal spectral#brighter(g:_ssigncol,1.3) 
 Hi TabLineSel g:_sred g:_sbackground g:_sgreen ["Bold"] 
 
 call spectral#Finish()
 
-if &background == "dark"
-  let g:terminal_color_0="#282828"
-  let g:terminal_color_1="#cc241d"
-  let g:terminal_color_2="#98971a"
-  let g:terminal_color_3="#d79921"
-  let g:terminal_color_4="#458588"
-  let g:terminal_color_5="#b16286"
-  let g:terminal_color_6="#689d6a"
-  let g:terminal_color_7="#a89984"
-  let g:terminal_color_8="#928374"
-  let g:terminal_color_9="#fb4934"
-  let g:terminal_color_10="#b8bb26"
-  let g:terminal_color_11="#fabd2f"
-  let g:terminal_color_12="#83a598"
-  let g:terminal_color_13="#d3869b"
-  let g:terminal_color_14="#8ec07c"
-  let g:terminal_color_15="#ebdbb2"
-else
-  let g:terminal_color_0="#dedede"
-  let g:terminal_color_1="#df3c2f"
-  let g:terminal_color_2="#485300"
-  let g:terminal_color_3="#5c3400"
-  let g:terminal_color_4="#347073"
-  let g:terminal_color_5="#9a4c71"
-  let g:terminal_color_6="#215b2b"
-  let g:terminal_color_7="#4e4431"
-  let g:terminal_color_8="#65594b"
-  let g:terminal_color_9="#b30005"
-  let g:terminal_color_10="#2a3600"
-  let g:terminal_color_11="#3f1b00"
-  let g:terminal_color_12="#2a493e"
-  let g:terminal_color_13="#712d44"
-  let g:terminal_color_14="#003b00"
-  let g:terminal_color_15="#1e1600"
-endif
+call spectral#useDefaultTerminalColors()
 
 hi! link Constant PreProc
 hi! link vimFunction Function
