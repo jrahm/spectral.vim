@@ -36,25 +36,31 @@ let g:_sabstract_class = spectral#mix(g:_sorange,g:_sred,0.2)
 let g:_sstring = spectral#mix(g:_sgreen, g:_syellow, 0.5)
 
 let g:_sgold = '#ffd900'
+let g:_scomment = '#bb8b8c'
+let g:_scomment = '#4a79ff'
+let g:_sfunction = '#a5ff4a'
+let g:_sred2 = '#ff4a4a'
+
 
 Hi StatusLine g:_sred spectral#brighter(g:_svertsplit,0.7) ["Bold"]
 Hi StatusLineNC g:_sgray spectral#brighter(g:_svertsplit,0.7) ["None"]
 
+" This is a comment
 Hi Folded g:_sred spectral#brighter(g:_sbackground,1.5)
 Hi Error #d52a2f None #d52a2f ["Undercurl"]
 Hi Warning #d5d32a None #d5d32a ["None"]
 Hi Success #2ad547 None 
 Hi Normal g:_snormal g:_sbackground 
-Hi Comment spectral#brighter(g:_sblue,0.9) None ["Italic"] 
+Hi Comment g:_scomment None ["Italic"] 
 Hi StorageClass g:_sgreen None ["Bold"] 
 Hi Statement g:_sgreen None ["Bold"] 
-Hi String g:_sstring None ["Italic"] 
+Hi String g:_sstring None [] 
 Hi Identifier g:_sbrightgray None 
 Hi Structure g:_sred None ["Bold"] 
-Hi Function #b8b3a9 None ["None"] 
+Hi Function g:_sfunction None ["None"] 
 Hi Type g:_stype None ["Bold"] 
 Hi Special g:_sgold 
-Hi javaCommentTitle g:_sblue None ["Bold","Italic"] 
+Hi javaCommentTitle g:_scomment None ["Bold"] 
 Hi javaDocTags g:_sdesat None ["None"] 
 Hi htmlTag #dc00ff None ["None"] 
 Hi htmlTagName g:_sblue None ["Bold"] 
@@ -71,7 +77,7 @@ Hi EnjinTypeParameter g:_sred None ["Bold"]
 Hi EnjinCatchVar g:_sred
 Hi EnjinForVar g:_sred
 Hi EnjinEnhancedForVar g:_sred
-Hi Directory g:_sblue None ["Bold"] 
+Hi Directory g:_sred2 None ["Bold"] 
 Hi PMenu g:_snormal spectral#brighter(g:_sbackground,1.3) 
 Hi UnderCursor None spectral#brighter(g:_sbackground,2) 
 Hi CursorLine None spectral#brighter(g:_sbackground,2) 
@@ -85,6 +91,7 @@ Hi Number #dbff00
 Hi PreProcEnjinEnum spectral#mix(g:_senum,g:_sbrightgray,0.6) None ["Bold"] 
 Hi PreProcEnjinClass spectral#mix(g:_stype,g:_sbrightgray,0.6) None ["Bold"] 
 Hi PreProcEnjinInterface spectral#mix(g:_sinterface,g:_sbrightgray,0.6) None ["Bold"] 
+Hi PreProcEnjinAnnotation spectral#mix(g:_sinterface,g:_sbrightgray,0.6) None ["Bold"] 
 Hi PreProcEnjinAbstractClass spectral#mix(g:_sabstract_class,g:_sbrightgray,0.6) None ["Bold"] 
 Hi PreProcEnjinConstant spectral#mix(g:_sgray,g:_sbrightgray,0.6) None ["Bold"] 
 Hi PreProcEnjinFunction spectral#mix(g:_syellow,g:_sbrightgray,0.6) 
