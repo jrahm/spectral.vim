@@ -423,17 +423,26 @@ def spectral_start(outfile):
   spectral_ctx = Vivid(outfile)
   spectral_ctx.start()
 
+def get_saturation(color):
+  if isinstance(color, str):
+    color = sRGBColor.new_from_rgb_hex(color)
+
+  color_hsv = convert_color(color, HSVColor)
+  (h, s, v) = color_hsv.get_value_tuple()
+  return s
+
+def spectral_get_saturation(color):
+  c = get_saturation(color)
+  vim.command('let g:return=%s' % c)
+
 def set_saturation(color, amnt):
   if isinstance(color, str):
     color = sRGBColor.new_from_rgb_hex(color)
 
-  print("Color " + str(color) + " " + get_rgb_hex(color))
   color_hsv = convert_color(color, HSVColor)
   (h, s, v) = color_hsv.get_value_tuple()
 
-  print("HSVPre " + str(color_hsv))
   color_hsv = HSVColor(h, amnt, v)
-  print("HSVPost " + str(color_hsv))
   return convert_color(color_hsv, sRGBColor)
 
 def spectral_set_saturation(color, amnt):

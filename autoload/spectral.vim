@@ -50,7 +50,28 @@ function! spectral#desaturate(color, amount)
   return spectral#toColor(nr, ng, nb)
 endfunction
 
-function! spectral#set_saturation(color, amount)
+function! spectral#getSaturation(color)
+  let saved = 0
+  if exists('g:return')
+    let old_return = g:return
+    let saved = 1
+  endif
+
+  call s:loadPythonScript()
+  exec printf('python3 spectral_get_saturation("%s")', a:color)
+
+  let ret = g:return
+
+  if saved
+    let g:return = old_return
+  else
+    unlet g:return
+  endif
+
+  return ret
+endfunction
+
+function! spectral#setSaturation(color, amount)
   let saved = 0
   if exists('g:return')
     let old_return = g:return
@@ -233,6 +254,9 @@ function! spectral#Hi(bang, fn, name, ...)
     let bg = "None"
     let sp = "None"
     let extra = []
+  else
+    echoerr printf("Incorrect number of arguments for highlight [%s]", a:name)
+    return
   endif
 
   if extra == []
@@ -306,4 +330,34 @@ function! spectral#useDefaultTerminalColors() abort
     let g:terminal_color_8="#65594b"
     let g:terminal_color_9="#b30005"
   endif
+endfunction
+
+function! spectral#brightenWord(amnt) abort
+  let color = expand('<cword>')
+
+  if !(color =~ '^#[A-F-a-f0-9]\{6}')
+    echo "Not a color"
+    return
+  endif
+
+  let new_color = spectral#brighter(color, a:amnt)
+  exec "norm ciw" . new_color . ""
+endfunction
+
+function! spectral#saturate(color, amnt) abort
+  let cur_sat = spectral#getSaturation(a:color)
+  return spectral#setSaturation(a:color, cur_sat * a:amnt)
+endfunction
+
+function! spectral#saturateWord(amnt) abort
+  let color = expand('<cword>')
+
+  if !(color =~ '^#[A-F-a-f0-9]\{6}')
+    echo "Not a color"
+    return
+  endif
+
+  let cur_sat = spectral#getSaturation(color)
+  let new_color = spectral#setSaturation(color, cur_sat * a:amnt)
+  exec "norm ciw" . new_color . ""
 endfunction
