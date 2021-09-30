@@ -15,13 +15,13 @@ let g:_snormal = "#fbdeff"
 let g:_sbackground = "#202025"
 let g:_svert = spectral#brighter(g:_sbackground, 2)
 let g:_sstatement = "#50D28C"
-let g:_stype = '#b7b0ff'
+let g:_stype = "#b7b0ff"
 let g:_sabstract_class = spectral#mix(g:_stype,"#ff0000",0.1)
 let g:_sinterface = spectral#mix(g:_stype,"#ff0000",0.2)
 let g:_senum = spectral#mix(g:_stype,"#ff0000",0.3)
 let g:_spreproc = spectral#brighter(g:_snormal,0.6)
-let g:_sfunction = '#d9a7ff'
-let g:_syellow1 = '#e4c692'
+let g:_sfunction = "#d9a7ff"
+let g:_syellow1 = "#e4c692"
 let g:_scodebg = spectral#brighter(g:_sbackground,2)
 
 call spectral#StartCompile()
@@ -102,17 +102,17 @@ Hi EnjinAbstractClass g:_sabstract_class
 Hi EnjinInterface g:_sinterface
 Hi EnjinEnum g:_senum
 
-Hi Pmenu None spectral#mix(g:_sbackground,'#000020',0.3)
+Hi Pmenu None spectral#mix(g:_sbackground,"#000020",0.3)
 
-Hi PreProcEnjinFunction spectral#mix(g:_sfunction,'#ffffff',0.3)
-Hi PreProcEnjinClass spectral#mix(g:_stype,'#ffffff',0.3)
-Hi PreProcEnjinAbstractClass spectral#mix(g:_sabstract_class,'#ffffff',0.3)
-Hi PreProcEnjinInterface spectral#mix(g:_sinterface,'#ffffff',0.3)
-Hi PreProcEnjinEnum spectral#mix(g:_senum,'#ffffff',0.3)
-Hi PreProcEnjinAnnotation spectral#mix(g:_stype,'#ffffff',0.3)
+Hi PreProcEnjinFunction spectral#mix(g:_sfunction,"#ffffff",0.3)
+Hi PreProcEnjinClass spectral#mix(g:_stype,"#ffffff",0.3)
+Hi PreProcEnjinAbstractClass spectral#mix(g:_sabstract_class,"#ffffff",0.3)
+Hi PreProcEnjinInterface spectral#mix(g:_sinterface,"#ffffff",0.3)
+Hi PreProcEnjinEnum spectral#mix(g:_senum,"#ffffff",0.3)
+Hi PreProcEnjinAnnotation spectral#mix(g:_stype,"#ffffff",0.3)
 
-let g:_sstatuslfg='#7aa6d2'
-Hi StatusLine g:_sstatuslfg spectral#mix(g:_svert,'#0000ff',0.2) None ["bold"]
+let g:_sstatuslfg="#7aa6d2"
+Hi StatusLine g:_sstatuslfg spectral#mix(g:_svert,"#0000ff",0.2) None ["bold"]
 Hi StatusLineNC spectral#desaturate(g:_sstatuslfg,0.5) g:_svert None ["bold"]
 
 call spectral#Finish()

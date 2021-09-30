@@ -11,11 +11,11 @@ if !exists('g:spectral_parameters')
         \               spectral#normalize([0.2, 0.2, 1], 0.8)]}
 endif
 
-let g:_snormal = '#2a1a12'
-let g:_sbg = '#e5dab8'
-let g:_sblueish = '#4e587e'
-let g:_sdarknormal = '#f1dbcf'
-let g:_sdarkbg = '#25211a'
+let g:_snormal = "#2a1a12"
+let g:_sbg = "#e5dab8"
+let g:_sblueish = "#4e587e"
+let g:_sdarknormal = "#f1dbcf"
+let g:_sdarkbg = "#25211a"
 let g:_sdarkvsplit = spectral#brighter(g:_sdarkbg, 2)
 let g:_sdarktablinefill = spectral#brighter(g:_sdarkbg, 0.6)
 let g:_sdarktabline = spectral#brighter(g:_sdarkbg, 0.8)
